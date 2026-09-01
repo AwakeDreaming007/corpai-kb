@@ -141,3 +141,9 @@ corpai-kb
 | 历史 | `GET /api/history`、`GET /api/history/{id}` |
 | 反馈 | `POST /api/feedback`（赞/踩，幂等） |
 | 系统 | `/api/sys/users`、`/api/sys/roles`、`/api/sys/permissions` |
+
+## 开源许可
+
+本项目基于 [MIT License](LICENSE) 开源。
+
+> 您可以自由使用、复制、修改和分发本项目，包括商业用途，唯一要求是保留原版权声明和许可文本。本项目按"现状"提供，作者不承担任何担保或责任。

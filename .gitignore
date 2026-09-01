@@ -1,0 +1,38 @@
+.idea
+.codegraph
+
+# IDE
+*.iml
+*.ipr
+*.iws
+.vscode/
+
+# Java / Maven
+target/
+*.class
+*.jar
+*.war
+*.log
+hs_err_pid*
+
+# Node.js / Vue
+node_modules/
+dist/
+.vite/
+*.local
+
+# Environment & secrets
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.jks
+
+# OS
+.DS_Store
+Thumbs.db
+
+# CodeGraph
+.codegraph/
