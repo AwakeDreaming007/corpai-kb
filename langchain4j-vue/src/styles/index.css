@@ -1,0 +1,149 @@
+/* 设计令牌：统一企业控制台的主色、灰阶、间距、圆角与三级阴影 */
+:root {
+  --primary-050: #eef4ff;
+  --primary-100: #dbeafe;
+  --primary-200: #bfdbfe;
+  --primary-600: #2563eb;
+  --primary-700: #1d4ed8;
+  --success-500: #059669;
+  --warning-500: #d97706;
+  --danger-500: #dc2626;
+  --surface-000: #f5f7fb;
+  --surface-050: #fbfcfe;
+  --surface-100: #ffffff;
+  --sidebar-900: #101827;
+  --sidebar-850: #151f31;
+  --sidebar-800: #1e293b;
+  --ink-900: #111827;
+  --ink-700: #374151;
+  --ink-500: #6b7280;
+  --ink-300: #d1d5db;
+  --ink-200: #e5e7eb;
+  --ink-100: #f3f4f6;
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 16px;
+  --space-4: 24px;
+  --space-5: 32px;
+  --radius-sm: 8px;
+  --radius-md: 10px;
+  --radius-lg: 12px;
+  --shadow-1: 0 1px 2px rgba(15, 23, 42, 0.06);
+  --shadow-2: 0 8px 24px rgba(15, 23, 42, 0.08);
+  --shadow-3: 0 18px 48px rgba(15, 23, 42, 0.14);
+
+  --el-color-primary: var(--primary-600);
+  --el-color-primary-light-3: #4f7ff1;
+  --el-color-primary-light-5: #7ba0f6;
+  --el-color-primary-light-7: #a9c5fa;
+  --el-color-primary-light-8: #c3d6fc;
+  --el-color-primary-light-9: var(--primary-050);
+  --el-color-primary-dark-2: var(--primary-700);
+  --el-color-success: var(--success-500);
+  --el-color-warning: var(--warning-500);
+  --el-color-danger: var(--danger-500);
+  --el-border-radius-base: var(--radius-md);
+  --el-border-radius-small: var(--radius-sm);
+  --el-border-radius-round: 999px;
+  --el-text-color-primary: var(--ink-900);
+  --el-text-color-regular: var(--ink-700);
+  --el-text-color-secondary: var(--ink-500);
+  --el-border-color: var(--ink-200);
+  --el-fill-color-blank: var(--surface-100);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#app {
+  width: 100%;
+  min-height: 100%;
+  margin: 0;
+}
+
+body {
+  color: var(--ink-900);
+  background: var(--surface-000);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+  font-variant-numeric: tabular-nums;
+  -webkit-font-smoothing: antialiased;
+}
+
+button,
+input,
+textarea {
+  font-family: inherit;
+}
+
+/* 只用透明度与位移动效，并尊重系统减弱动效设置 */
+.fade-slide-enter-active,
+.fade-slide-leave-active,
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 180ms ease-out, transform 180ms ease-out;
+}
+
+.fade-slide-enter-from,
+.fade-slide-leave-to {
+  opacity: 0;
+  transform: translateY(8px);
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
+
+.soft-card {
+  background: var(--surface-100);
+  border: 1px solid rgba(229, 231, 235, 0.82);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-1);
+  transition: transform 180ms ease-out, box-shadow 180ms ease-out, border-color 180ms ease-out;
+}
+
+.soft-card:hover {
+  transform: translateY(-2px);
+  border-color: rgba(191, 219, 254, 0.9);
+  box-shadow: var(--shadow-2);
+}
+
+.el-button:not(.is-text):active {
+  transform: scale(0.98);
+}
+
+.el-table .el-table__row {
+  transition: background-color 150ms ease-out;
+}
+
+.page-container {
+  width: min(1180px, 100%);
+  margin: 0 auto;
+  padding: var(--space-4) var(--space-4) var(--space-5);
+}
+
+.page-title {
+  margin: 0 0 var(--space-2);
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.page-subtitle {
+  margin: 0 0 var(--space-4);
+  color: var(--ink-500);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}

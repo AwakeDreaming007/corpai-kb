@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(//c/Users/xfg20/.claude/skills/ui-ux-pro-max/**)",
+      "Bash(python scripts/search.py \"checkbox permission selection group filter\" --domain ux -n 6)",
+      "Bash(python scripts/search.py \"badge chip label wraps overflow reflow\" --domain ux -n 6)",
+      "Bash(python scripts/search.py \"modal dialog escape focus dismiss\" --domain ux -n 6)"
+    ]
+  }
+}

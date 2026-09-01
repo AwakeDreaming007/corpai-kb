@@ -1,0 +1,378 @@
+{
+  "total": 53,
+  "failed": 0,
+  "lastErr": null,
+  "results": [
+    {
+      "label": "admin 登录",
+      "status": 200,
+      "code": 200,
+      "ok": true,
+      "note": ""
+    },
+    {
+      "label": "注册 ttest000（200 或已存在 400，均非 500）",
+      "status": 200,
+      "code": 400,
+      "ok": true,
+      "note": ""
+    },
+    {
+      "label": "重复注册返回 400(非500)",
+      "status": 200,
+      "code": 400,
+      "ok": true,
+      "note": ""
+    },
+    {
+      "label": "注册 ttest001（200 或已存在 400，均非 500）",
+      "status": 200,
+      "code": 400,
+      "ok": true,
+      "note": ""
+    },
+    {
+      "label": "ttest000 登录",
+      "status": 200,
+      "code": 200,
+      "ok": true,
+      "note": ""
+    },
+    {
+      "label": "无 token -> 401",
+      "status": 401,
+      "code": 401,
+      "ok": true,
+      "note": ""
+    },
+    {
+      "label": "无 Bearer 前缀 -> 401",
+      "status": 401,
+      "code": 401,
+      "ok": true,
+      "note": ""
+    },
+    {
+      "label": "伪造签名 -> 401",
+      "status": 401,
+      "code": 401,
+      "ok": true,
+      "note": ""
+    },
+    {
+      "label": "错密码 -> 401/400(非500)",
+      "status": 200,
+      "code": 401,
+      "ok": true,
+      "note": ""
+    },
+    {
+      "label": "/me admin",
+      "status": 200,
+      "code": 200,
+      "ok": true,
+      "note": ""
+    },
+    {
+      "label": "USER 调 /api/sys/users -> 403",
+      "status": 200,
+      "code": 403,
+      "ok": true,
+      "note": ""
+    },
+    {
+      "label": "用户列表",
+      "status": 200,
+      "code": 200,
+      "ok": true,
+      "note": ""
+    },
+    {
+      "label": "禁用用户",
+      "status": 200,
+      "code": 200,
+      "ok": true,
+      "note": ""
+    },
+    {
+      "label": "重新启用用户",
+      "status": 200,
+      "code": 200,
+      "ok": true,
+      "note": ""
+    },
+    {
+      "label": "非法 status -> 400(非500)",
+      "status": 200,
+      "code": 400,
+      "ok": true,
+      "note": ""
+    },
+    {
+      "label": "权限列表",
+      "status": 200,
+      "code": 200,
+      "ok": true,
+      "note": ""
+    },
+    {
+      "label": "角色列表",
+      "status": 200,
+      "code": 200,
+      "ok": true,
+      "note": ""
+    },
+    {
+      "label": "删内置 ADMIN -> 400(非500)",
+      "status": 200,
+      "code": 400,
+      "ok": true,
+      "note": ""
+    },
+    {
+      "label": "创建自定义角色",
+      "status": 200,
+      "code": 200,
+      "ok": true,
+      "note": ""
+    },
+    {
+      "label": "重复创建角色 -> 400(非500)",
+      "status": 200,
+      "code": 400,
+      "ok": true,
+      "note": ""
+    },
+    {
+      "label": "改内置角色名 -> 400(非500)",
+      "status": 200,
+      "code": 400,
+      "ok": true,
+      "note": ""
+    },
+    {
+      "label": "创建知识库",
+      "status": 200,
+      "code": 200,
+      "ok": true,
+      "note": ""
+    },
+    {
+      "label": "同名创建 -> 400(非500)",
+      "status": 200,
+      "code": 400,
+      "ok": true,
+      "note": ""
+    },
+    {
+      "label": "空名创建 -> 400(非500)",
+      "status": 200,
+      "code": 400,
+      "ok": true,
+      "note": ""
+    },
+    {
+      "label": "库列表",
+      "status": 200,
+      "code": 200,
+      "ok": true,
+      "note": ""
+    },
+    {
+      "label": "更新库信息",
+      "status": 200,
+      "code": 200,
+      "ok": true,
+      "note": ""
+    },
+    {
+      "label": "删除后重建同名录",
+      "status": 200,
+      "code": 200,
+      "ok": true,
+      "note": ""
+    },
+    {
+      "label": "成员列表",
+      "status": 200,
+      "code": 200,
+      "ok": true,
+      "note": ""
+    },
+    {
+      "label": "添加 EDITOR",
+      "status": 200,
+      "code": 200,
+      "ok": true,
+      "note": ""
+    },
+    {
+      "label": "重复添加 -> 400(非500)",
+      "status": 200,
+      "code": 400,
+      "ok": true,
+      "note": ""
+    },
+    {
+      "label": "直接加 OWNER -> 400(非500)",
+      "status": 200,
+      "code": 400,
+      "ok": true,
+      "note": ""
+    },
+    {
+      "label": "加不存在用户 -> 404(非500)",
+      "status": 200,
+      "code": 404,
+      "ok": true,
+      "note": ""
+    },
+    {
+      "label": "非法角色 -> 400(非500)",
+      "status": 200,
+      "code": 400,
+      "ok": true,
+      "note": ""
+    },
+    {
+      "label": "添加 VIEWER",
+      "status": 200,
+      "code": 200,
+      "ok": true,
+      "note": ""
+    },
+    {
+      "label": "删除不存在的成员 -> 404(非500)",
+      "status": 200,
+      "code": 404,
+      "ok": true,
+      "note": ""
+    },
+    {
+      "label": "ttest001 为 VIEWER（已存在 400 或新建 200 均可，非500）",
+      "status": 200,
+      "code": 400,
+      "ok": true,
+      "note": ""
+    },
+    {
+      "label": "VIEWER 改库 -> 403(非500)",
+      "status": 200,
+      "code": 403,
+      "ok": true,
+      "note": ""
+    },
+    {
+      "label": "上传 PDF status=200(非500)",
+      "status": 200,
+      "code": 200,
+      "ok": true,
+      "note": ""
+    },
+    {
+      "label": "同名覆盖上传",
+      "status": 200,
+      "code": 200,
+      "ok": true,
+      "note": ""
+    },
+    {
+      "label": "文档列表",
+      "status": 200,
+      "code": 200,
+      "ok": true,
+      "note": ""
+    },
+    {
+      "label": "创建会话",
+      "status": 200,
+      "code": 200,
+      "ok": true,
+      "note": ""
+    },
+    {
+      "label": "会话列表",
+      "status": 200,
+      "code": 200,
+      "ok": true,
+      "note": ""
+    },
+    {
+      "label": "流式问答收到事件流(非500)",
+      "status": 200,
+      "code": 200,
+      "ok": true,
+      "note": ""
+    },
+    {
+      "label": "按库历史列表",
+      "status": 200,
+      "code": 200,
+      "ok": true,
+      "note": ""
+    },
+    {
+      "label": "点赞",
+      "status": 200,
+      "code": 200,
+      "ok": true,
+      "note": ""
+    },
+    {
+      "label": "改点踩(应 upsert 1 条)",
+      "status": 200,
+      "code": 200,
+      "ok": true,
+      "note": ""
+    },
+    {
+      "label": "回显反馈",
+      "status": 200,
+      "code": 200,
+      "ok": true,
+      "note": ""
+    },
+    {
+      "label": "非法 rating -> 400(非500)",
+      "status": 200,
+      "code": 400,
+      "ok": true,
+      "note": ""
+    },
+    {
+      "label": "取消反馈",
+      "status": 200,
+      "code": 200,
+      "ok": true,
+      "note": ""
+    },
+    {
+      "label": "非法分页 -> 正常返回(钳制,非500)",
+      "status": 200,
+      "code": 200,
+      "ok": true,
+      "note": ""
+    },
+    {
+      "label": "超大 size -> 正常(钳制,非500)",
+      "status": 200,
+      "code": 200,
+      "ok": true,
+      "note": ""
+    },
+    {
+      "label": "非法 JSON -> 400(非500)",
+      "status": 200,
+      "code": 400,
+      "ok": true,
+      "note": ""
+    },
+    {
+      "label": "缺 name -> 400(非500)",
+      "status": 200,
+      "code": 400,
+      "ok": true,
+      "note": ""
+    }
+  ]
+}

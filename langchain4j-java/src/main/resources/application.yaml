@@ -1,0 +1,71 @@
+spring:
+  application:
+    name: langchain4j-java
+  data:
+    redis:
+      port: 6379
+      host: localhost
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://127.0.0.1:5432/xufg_db
+    username: postgres
+    password: ${DB_PASSWORD:123456}
+  servlet:
+    multipart:
+      max-file-size: 100MB       # 知识库文档上传单文件上限
+      max-request-size: 100MB    # 单次请求总上限
+  mvc:
+    async:
+      request-timeout: 300000    # SSE 流式问答异步请求超时（毫秒），须远大于 30s 默认值
+
+
+logging:
+  config: classpath:logback.xml
+  level:
+    com.jinsubao.wrap.dao: debug
+
+
+# LangChain4j 各模型与存储的连接配置（由 ChainConfig / PgVectorConfig 通过 @Value 读取；
+# starter 的 YAML 自动配置未启用，这里只是自定义配置段）
+# 凭据优先从环境变量读取，未设置时使用冒号后的默认值（仅限本地开发，生产环境务必通过环境变量注入）
+langchain4j:
+  zhipu:                                   # 智谱 BigModel（OpenAI 兼容端点）
+    base-url: https://open.bigmodel.cn/api/paas/v4
+    api-key: ${ZHIPU_API_KEY:}             # 环境变量 ZHIPU_API_KEY
+    model-name: glm-5.3-flash
+  deepseek:                                # DeepSeek（OpenAI 兼容端点）
+    base-url: https://api.deepseek.com
+    api-key: ${DEEPSEEK_API_KEY:}          # 环境变量 DEEPSEEK_API_KEY
+    model-name: deepseek-v4-flash
+  dashscope:                               # 阿里云 DashScope（仅用于 Embedding）
+    api-key: ${DASHSCOPE_API_KEY:}         # 环境变量 DASHSCOPE_API_KEY
+    embedding-model-name: qwen3.7-text-embedding
+    embedding-dimension: 1536              # 必须与 pgvector 表的向量维度一致
+  pgvector:                                # PostgreSQL + pgvector 向量库连接信息
+    host: localhost
+    port: 5432
+    database: xufg_db
+    user: postgres
+    password: ${DB_PASSWORD:123456}
+    table: vector_store
+    dimension: 1536
+
+server:
+  servlet:
+    encoding:
+      charset: UTF-8
+      enabled: true
+      force: true
+
+# 企业知识库平台自定义配置段（由 config/ 下 @Value / @ConfigurationProperties 读取）
+kb:
+  jwt:
+    secret: ${KB_JWT_SECRET:}      # JWT 签名密钥，必须由环境变量 KB_JWT_SECRET 注入，禁止硬编码
+    expire-minutes: 720            # token 有效期（分钟），默认 12 小时
+  upload-dir: ./uploads            # 知识库文档落盘目录
+  retrieval:
+    min-score: 0.55                # 向量检索最低相关性阈值，低于该值的分段不进入提示词
+  memory-ttl-hours: 24             # Redis 聊天记忆 TTL（小时）
+  ingest:                          # 文档异步入库可观测性配置
+    reconcile-initial-delay-ms: 60000   # 应用启动后首次对账延迟
+    reconcile-interval-ms: 300000       # 处理中状态对账周期
